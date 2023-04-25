@@ -1,0 +1,233 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="What is Linux?">
+    <title>4.2 Lakhs Chits </title>
+    <link rel="icon" href="img/favicon.ico">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <!-- <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style> -->
+        <style>
+            #customers {
+              font-family: Arial, Helvetica, sans-serif;
+              border-collapse: collapse;
+              width: 100%;
+            }
+            
+            #customers td, #customers th {
+              border: 1px solid #ddd;
+              padding: 8px;
+            }
+            #active td{
+                border: 1px solid #ddd;
+                padding: 1px;
+            }
+            
+            #customers tr:nth-child(even){background-color: #f2f2f2;}
+            
+            #customers tr:hover {background-color: #ddd;}
+            
+            #customers th {
+              padding-top: 12px;
+              padding-bottom: 12px;
+              text-align: left;
+              background-color: #04AA6D;
+              color: white;
+            }
+            </style>
+            <script>
+                function beatAmountChange(){
+                    var x = document.getElementById("beatAmount").value;
+                    if(x >0)
+                    {
+                        document.getElementById("inHandAmount").innerHTML = 420000 - x;
+                        document.getElementById("perHead").innerHTML = Math.round((420000 - x) / 24);
+                    }
+                    else
+                    {
+                        document.getElementById("inHandAmount").innerHTML = "";
+                        document.getElementById("perHead").innerHTML = "";
+                    }
+                }
+            </script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">4.2 Lakhs Chits</a>
+            </div>
+        </div>
+    </div><!--navbar -->
+    <div class="row">
+        <div class="col-sm-1">
+            <!-- <div class="list-group">
+                <div class="list-group">
+                    <a class="list-group-item active" href="index.html"><span class="fa fa-square"></span>&nbsp; 24 Lakhs Chits</a>
+                </div>
+            </div> -->
+        </div>
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="page-header">
+                    <h1>4.2 Lakhs Chits</h1>
+                </div>
+                <table id="customers">
+                    <tr>
+                        <td colspan="4" style="text-align: right;"><b>Chit Amount : </b></td>
+                        <td colspan="3"><b>4200000</b></td>
+                    </tr>
+                    <tr>
+                        <th>S.No</th><th>Month</th>
+                        <th>Beat<br/>Amount</th>
+                        <th>In Hand<br/>Chit Amount</th>
+                        <th>Per Head</th>
+                        <th>Chit Took<br/>Person</th>
+                        <th>Extra Amount<br/>In Box</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>15-Jan-2023</td>
+                        <td>120000</td>
+                        <td>300000</td>
+                        <td>12500</td>
+                        <td>Nanjundan K</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>15-Feb-2023</td>
+                        <td>121000</td>
+                        <td>299000</td>
+                        <td>12500</td>
+                        <td>Madesh</td>
+                        <td>1000</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>15-Mar-2023</td>
+                        <td>120000</td>
+                        <td>300000</td>
+                        <td>12500</td>
+                        <td>Palani N</td>
+                        <td>1000</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>15-Apr-2023</td>
+                        <td>94000</td>
+                        <td>326000</td>
+                        <td>13600</td>
+                        <td>Selvam PM</td>
+                        <td>1400</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>15-May-2023</td>
+                        <td id="active"><input style="width: 100px;" type="number" min="50000" value="50000" id="beatAmount" onKeyUp="beatAmountChange()"/></td>
+                        <td><p id="inHandAmount"></p></td>
+                        <td><p id="perHead"></p></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>15-June-2023</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>15-July-2023</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>15-Aug-2023</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>15-Sep-2023</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>15-Oct-2023</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>15-Nov-2023</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>15-Dec-2023</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" style="text-align: right;"><b>Total Amount Paid Per Head : </b></td>
+                        <td colspan="3"><b>51100</b></td>
+                    </tr>
+                </table>
+
+                
+
+                <p>&nbsp;</p>
+
+                
+                <p>&nbsp;</p>
+                <hr>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
