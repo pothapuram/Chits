@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content=">4.2 Lakhs Chits">
+    <title>Pothapuram Chits </title>
+    <link rel="icon" href="img/favicon.ico">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <!-- <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style> -->
+        <style>
+            #customers {
+              font-family: Arial, Helvetica, sans-serif;
+              border-collapse: collapse;
+              width: 95%;
+              margin-left: 5%;
+            }
+            
+            #customers td, #customers th {
+              border: 1px solid #ddd;
+              padding: 8px;
+            }
+            #active td{
+                border: 1px solid #ddd;
+                padding: 1px;
+            }
+            
+            #customers tr:nth-child(even){background-color: #f2f2f2;}
+            
+            #customers tr:hover {background-color: #ddd;}
+            
+            #customers th {
+              padding-top: 12px;
+              padding-bottom: 12px;
+              text-align: left;
+              background-color: #04AA6D;
+              color: white;
+            }
+            </style>
+            <script>
+                function beatAmountChange(){
+                    var x = document.getElementById("beatAmount").value;
+                    if(x >0)
+                    {
+                        document.getElementById("inHandAmount").innerHTML = 420000 - x;
+                        document.getElementById("perHead").innerHTML = Math.round((420000 - x) / 24);
+                    }
+                    else
+                    {
+                        document.getElementById("inHandAmount").innerHTML = "";
+                        document.getElementById("perHead").innerHTML = "";
+                    }
+                }
+            </script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">4.2 Lakhs</a>
+                <a class="navbar-brand" href="530Lakh.html">5.3 Lakhs</a>
+            </div>
+        </div>
+    </div><!--navbar -->
+    <div class="row">
+        <div class="col-sm-1">
+            <!-- <div class="list-group">
+                <div class="list-group">
+                    <a class="list-group-item active" href="index.html"><span class="fa fa-square"></span>&nbsp; 24 Lakhs Chits</a>
+                </div>
+            </div> -->
+        </div>
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="page-header">
+                    <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 4.2 Lakhs Chits</h1>
+                </div>
+                <table id="customers">
+                    <tr>
+                        <td colspan="4" style="text-align: right;"><b>Chit Amount : </b></td>
+                        <td colspan="3"><b>420000</b></td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: right;">Chit<br/>No</th>
+                        <th>Month&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                        <th>Beat<br/>Amount</th>
+                        <th>In Hand<br/>Amount</th>
+                        <th>Per<br/>Head</th>
+                        <th>Took<br/>Person</th>
+                        <th>Extra<br/>In Box</th>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">1</td>
+                        <td>15-Jan-2023</td>
+                        <td>120000</td>
+                        <td>300000</td>
+                        <td>12500</td>
+                        <td>Nanjundan K</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">2</td>
+                        <td>15-Feb-2023</td>
+                        <td>121000</td>
+                        <td>299000</td>
+                        <td>12500</td>
+                        <td>Madesh</td>
+                        <td>1000</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">3</td>
+                        <td>15-Mar-2023</td>
+                        <td>120000</td>
+                        <td>300000</td>
+                        <td>12500</td>
+                        <td>Palani N</td>
+                        <td>1000</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">4</td>
+                        <td>15-Apr-2023</td>
+                        <td>94000</td>
+                        <td>326000</td>
+                        <td>13600</td>
+                        <td>Selvam PM</td>
+                        <td>1400</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">5</td>
+                        <td>15-May-2023</td>
+                        <td>100000</td>
+                        <td>320000</td>
+                        <td>13300</td>
+                        <td>Munivel E</td>
+                        <td>600</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">6</td>
+                        <td>15-June-2023</td>
+                        <td>96000</td>
+                        <td>324000</td>
+                        <td>13500</td>
+                        <td>Vijaykumar</td>
+                        <td>600</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">7</td>
+                        <td>15-July-2023</td>
+                        <td>91000</td>
+                        <td>329000</td>
+                        <td>13700</td>
+                        <td>Senthilkumar&nbsp;A</td>
+                        <td>400</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">8</td>
+                        <td>15-Aug-2023</td>
+                        <td>80000</td>
+                        <td>340000</td>
+                        <td>14200</td>
+                        <td>Nanjundan V</td>
+                        <td>1200</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">9</td>
+                        <td>15-Sep-2023</td>
+                        <td>75000</td>
+                        <td>345000</td>
+                        <td>14400</td>
+                        <td>Sakthivel E</td>
+                        <td>1800</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">10</td>
+                        <td>15-Oct-2023</td>
+                        <td>68000</td>
+                        <td>352000</td>
+                        <td>14600</td>
+                        <td>Nagaraj T</td>
+                        <td>200</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">11</td>
+                        <td>15-Nov-2023</td>
+                        <td>58000</td>
+                        <td>362000</td>
+                        <td>15100</td>
+                        <td>Govindaraj M</td>
+                        <td>600</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">12</td>
+                        <td>15-Dec-2023</td>
+                        <td>51000</td>
+                        <td>369000</td>
+                        <td>15400</td>
+                        <td>Prasanth M</td>
+                        <td>1200</td>
+                    </tr>
+                     <tr>
+                        <td style="text-align: right;">13</td>
+                        <td>15-Jan-2024</td>
+                        <td>48000</td>
+                        <td>372000</td>
+                        <td>15500</td>
+                        <td>Nanjappan R</td>
+                        <td>1200</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">14</td>
+                        <td>15-Feb-2024</td>
+                        <td>49000</td>
+                        <td>371000</td>
+                        <td>15500</td>
+                        <td>Murali S</td>
+                        <td>2200</td>
+                    </tr>
+                     <tr>
+                        <td style="text-align: right;">15</td>
+                        <td>15-Mar-2024</td>
+                        <td>44000</td>
+                        <td>376000</td>
+                        <td>15600</td>
+                        <td>Venkatesh</td>
+                        <td>600</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">16</td>
+                        <td>15-Apr-2024</td>
+                        <td id="active"><input style="width: 100px;" type="number" min="40000" value="40000" id="beatAmount" onKeyUp="beatAmountChange()"/></td>
+                        <td><p id="inHandAmount"></p></td>
+                        <td><p id="perHead"></p></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">17</td>
+                        <td>15-May-2024</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">18</td>
+                        <td>15-June-2024</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">19</td>
+                        <td>15-July-2024</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">20</td>
+                        <td>15-Aug-2024</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">21</td>
+                        <td>15-Sep-2024</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">22</td>
+                        <td>15-Oct-2024</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">23</td>
+                        <td>15-Nov-2024</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">24</td>
+                        <td>15-Dec-2024</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" style="text-align: right;"><b>Total Amount Paid Per Head : </b></td>
+                        <td colspan="3"><b>211900</b></td>
+                    </tr>
+                    <tr>
+                        <td colspan="7"> &nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="7"> &nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="7"> &nbsp;</td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="7" style="text-align: center;"><b>சீட்டு எடுக்காதவர்கள்</b></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;"><b>S.No </b></td>
+                        <td style="text-align: right;"><b>Name </b></td>
+                        <td colspan="5"><b>Mobile Number</b></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">1 </td>
+                        <td style="text-align: right;">Veeramani A </td>
+                        <td colspan="5"><a href="tel:9688565526">9688565526</a></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">2 </td>
+                        <td style="text-align: right;">Ammasi A</td>
+                        <td colspan="5"><a href="tel:9025591963">9025591963</a></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">3 </td>
+                        <td style="text-align: right;">Parthiban R</td>
+                        <td colspan="5"><a href="tel:8883084628">8883084628</a></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">4 </td>
+                        <td style="text-align: right;">Chandru </td>
+                        <td colspan="5"><a href="tel:8883084628">8883084628</a></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">5 </td>
+                        <td style="text-align: right;">Pachaiyappan</td>
+                        <td colspan="5"><a href="tel:9543606071">9543606071</a></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">6 </td>
+                        <td style="text-align: right;">Selvam N</td>
+                        <td colspan="5"><a href="tel:9943247880">9943247880</a></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">7 </td>
+                        <td style="text-align: right;">Chinnasamy S</td>
+                        <td colspan="5"><a href="tel:7010861707">7010861707</a></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">8 </td>
+                        <td style="text-align: right;">Murugan M </td>
+                        <td colspan="5"><a href="tel:9659145403">9659145403</a></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">9 </td>
+                        <td style="text-align: right;">Murugan K </td>
+                        <td colspan="5"><a href="tel:7373227756">7373227756</a></td>
+                    </tr>
+
+                </table>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <hr>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

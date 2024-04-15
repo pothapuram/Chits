@@ -1,0 +1,521 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="apple-touch-icon" type="image/png"
+        href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png">
+    <meta name="apple-mobile-web-app-title" content="4.2 Lakhs Chits">
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
+    <link rel="mask-icon" type="image/x-icon"
+        href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg"
+        color="#111">
+    <title>4.2 Lakhs Chits</title>
+    <link rel="canonical" href="https://codepen.io/yasser-mas/pen/pyWPJd">
+    <title>JQ Pagination</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <style>
+        body {
+
+            background-color: #eee;
+        }
+
+        table th,
+        table td {
+            text-align: center;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #BEF2F5
+        }
+
+        .pagination li:hover {
+            cursor: pointer;
+        }
+
+        table tbody tr {
+            display: none;
+        }
+    </style>
+
+    <script>
+        window.console = window.console || function (t) { };
+    </script>
+
+
+
+</head>
+
+<body translate="no">
+    <div class="container">
+        <h2>Select Year</h2>
+        <div class="form-group"> <!--		Show Numbers Of Rows 		-->
+            <select class="form-control" name="state" id="maxRows">
+                <option value="25">Show All</option>
+                <option value="12">2023</option>
+                <option value="25">2024</option>               
+            </select>
+
+        </div>
+
+        <table class="table table-striped table-class" id="table-id">
+
+            <thead>
+                <tr>
+                    <!-- <th style="text-align: right;">S.No</th> -->
+                    <th>Month</th>
+                    <th>Beat<br/>Amount</th>
+                    <th>In Hand<br/>Chit Amount</th>
+                    <th>Per Head</th>
+                    <th>Chit Took<br/>Person</th>
+                    <th>Extra Amount<br/>In Box</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr style="display: none;">
+                    <!-- <td style="text-align: right;">1</td> -->
+                    <td style="text-align: right;">15-Jan-2023</td>
+                    <td>120000</td>
+                    <td>300000</td>
+                    <td>12500</td>
+                    <td>Nanjundan K</td>
+                    <td>0</td>
+                </tr>
+                <tr style="display: none;">
+                    <!-- <td style="text-align: right;">2</td> -->
+                    <td style="text-align: right;">15-Feb-2023</td>
+                    <td>121000</td>
+                    <td>299000</td>
+                    <td>12500</td>
+                    <td>Madesh</td>
+                    <td>1000</td>
+                </tr>
+                <tr style="display: none;">
+                    <!-- <td style="text-align: right;">3</td> -->
+                    <td style="text-align: right;">15-Mar-2023</td>
+                    <td>120000</td>
+                    <td>300000</td>
+                    <td>12500</td>
+                    <td>Palani N</td>
+                    <td>1000</td>
+                </tr>
+                <tr style="display: none;">
+                    <!-- <td style="text-align: right;">4</td> -->
+                    <td style="text-align: right;">15-Apr-2023</td>
+                    <td>94000</td>
+                    <td>326000</td>
+                    <td>13600</td>
+                    <td>Selvam PM</td>
+                    <td>1400</td>
+                </tr>
+                <tr style="display: none;">
+                    <!-- <td style="text-align: right;">5</td> -->
+                    <td style="text-align: right;">15-May-2023</td>
+                    <td>100000</td>
+                    <td>320000</td>
+                    <td>13300</td>
+                    <td>Munivel E</td>
+                    <td>600</td>
+                </tr>
+                <tr style="display: none;">
+                    <!-- <td style="text-align: right;">6</td> -->
+                    <td style="text-align: right;">15-June-2023</td>
+                    <td>96000</td>
+                    <td>324000</td>
+                    <td>13500</td>
+                    <td>Vijaykumar</td>
+                    <td>600</td>
+                </tr>
+                <tr style="display: none;">
+                    <!-- <td style="text-align: right;">7</td> -->
+                    <td style="text-align: right;">15-July-2023</td>
+                    <td>91000</td>
+                    <td>329000</td>
+                    <td>13700</td>
+                    <td>Senthilkumar A</td>
+                    <td>400</td>
+                </tr>
+                <tr style="display: none;">
+                    <!-- <td style="text-align: right;">8</td> -->
+                    <td style="text-align: right;">15-Aug-2023</td>
+                    <td>80000</td>
+                    <td>340000</td>
+                    <td>14200</td>
+                    <td>Nanjundan V</td>
+                    <td>1200</td>
+                </tr>
+                <tr style="display: none;">
+                    <!-- <td style="text-align: right;">9</td> -->
+                    <td style="text-align: right;">15-Sep-2023</td>
+                    <td id="active"><input style="width: 100px;" type="number" min="50000" value="50000" id="beatAmount" onKeyUp="beatAmountChange()"/></td>
+                    <td><p id="inHandAmount"></p></td>
+                    <td><p id="perHead"></p></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr style="display: none;">
+                    <!-- <td style="text-align: right;">10</td> -->
+                    <td style="text-align: right;">15-Oct-2023</td>
+                    <td>Senthilkumar A</td>
+                    <td><a href="tel:9865059779">9865059779</a></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr style="display: none;">
+                    <!-- <td style="text-align: right;">11</td> -->
+                    <td style="text-align: right;">15-Nov-2023</td>
+                    <td>Murugan K</td>
+                    <td><a href="tel:+917373227756">+917373227756</a></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr style="display: none;">
+                    <!-- <td style="text-align: right;">12</td> -->
+                    <td style="text-align: right;">15-Dec-2023</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr style="display: none;">
+                   <!-- <td style="text-align: right;">13</td> -->
+                   <td style="text-align: right;">15-Jan-2024</td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                </tr>
+                <tr style="display: none;">
+                    <!-- <td style="text-align: right;">14</td> -->
+                   <td style="text-align: right;">15-Feb-2024</td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                </tr>
+                <tr style="display: none;">
+                    <!-- <td style="text-align: right;">15</td> -->
+                   <td style="text-align: right;">15-Mar-2024</td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                </tr>
+                <tr style="display: none;">
+                    <!-- <td style="text-align: right;">16</td> -->
+                   <td style="text-align: right;">15-Apr-2024</td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                </tr>
+                <tr style="display: none;">
+                    <!-- <td style="text-align: right;">17</td> -->
+                   <td style="text-align: right;">15-May-2024</td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                </tr>
+                <tr style="display: none;">
+                    <!-- <td style="text-align: right;">18</td> -->
+                   <td style="text-align: right;">15-June-2024</td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                </tr>
+                <tr style="display: none;">
+                   <!-- <td style="text-align: right;">19</td> -->
+                   <td style="text-align: right;">15-July-2024</td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                </tr>
+                <tr style="display: none;">
+                    <!-- <td style="text-align: right;">20</td> -->
+                   <td style="text-align: right;">15-Aug-2024</td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                </tr>
+                <tr style="display: none;">
+                    <!-- <td style="text-align: right;">21</td> -->
+                   <td style="text-align: right;">15-Sep-2024</td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                </tr>
+                <tr style="display: none;">
+                    <!-- <td style="text-align: right;">22</td> -->
+                   <td style="text-align: right;">15-Oct-2024</td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                </tr>
+                <tr style="display: none;">
+                   <!-- <td style="text-align: right;">23</td> -->
+                   <td style="text-align: right;">15-Nov-2024</td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                </tr>
+                <tr style="display: none;">
+                    <!-- <td style="text-align: right;">24</td> -->
+                   <td style="text-align: right;">15-Dec-2024</td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                   <td></td>
+                </tr>
+                <tr style="display: none;">
+                    <td colspan="4" style="text-align: right;"><b>Total Amount Paid Per Head : </b></td>
+                    <td colspan="3"><b>105800</b></td>
+                </tr>
+            </tbody>
+
+        </table>
+
+        <!--		Start Pagination -->
+        <div class="pagination-container">
+            <nav>
+                <ul class="pagination">
+
+                    <li data-page="prev">
+                        <span> &lt; <span class="sr-only">(current)</span></span>
+                    </li>
+                    <!--	Here the JS Function Will Add the Rows -->
+                    <li data-page="1" class=""> <span>1<span class="sr-only">(current)</span></span> </li>
+                    <li data-page="2" class="active"> <span>2<span class="sr-only">(current)</span></span> </li>
+                    <li data-page="3"> <span>3<span class="sr-only">(current)</span></span> </li>
+                    <li data-page="4"> <span>4<span class="sr-only">(current)</span></span> </li>
+                    <li data-page="5"> <span>5<span class="sr-only">(current)</span></span> </li>
+                    <li data-page="6" style="display: none;"> <span>6<span class="sr-only">(current)</span></span> </li>
+                    <li data-page="7" style="display: none;"> <span>7<span class="sr-only">(current)</span></span> </li>
+                    <li data-page="8" style="display: none;"> <span>8<span class="sr-only">(current)</span></span> </li>
+                    <li data-page="9" style="display: none;"> <span>9<span class="sr-only">(current)</span></span> </li>
+                    <li data-page="10" style="display: none;"> <span>10<span class="sr-only">(current)</span></span>
+                    </li>
+                    <li data-page="11" style="display: none;"> <span>11<span class="sr-only">(current)</span></span>
+                    </li>
+                    <li data-page="12" style="display: none;"> <span>12<span class="sr-only">(current)</span></span>
+                    </li>
+                    <li data-page="13" style="display: none;"> <span>13<span class="sr-only">(current)</span></span>
+                    </li>
+                    <li data-page="14" style="display: none;"> <span>14<span class="sr-only">(current)</span></span>
+                    </li>
+                    <li data-page="15" style="display: none;"> <span>15<span class="sr-only">(current)</span></span>
+                    </li>
+                    <li data-page="16" style="display: none;"> <span>16<span class="sr-only">(current)</span></span>
+                    </li>
+                    <li data-page="17" style="display: none;"> <span>17<span class="sr-only">(current)</span></span>
+                    </li>
+                    <li data-page="18" style="display: none;"> <span>18<span class="sr-only">(current)</span></span>
+                    </li>
+                    <li data-page="19" style="display: none;"> <span>19<span class="sr-only">(current)</span></span>
+                    </li>
+                    <li data-page="20" style="display: none;"> <span>20<span class="sr-only">(current)</span></span>
+                    </li>
+                    <li data-page="21" style="display: none;"> <span>21<span class="sr-only">(current)</span></span>
+                    </li>
+                    <li data-page="next" id="prev" style="display: inline;">
+                        <span> &gt; <span class="sr-only">(current)</span></span>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+    </div> <!-- 		End of Container -->
+
+
+
+    <!--  Developed By Yasser Mas -->
+    <script
+        src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"
+        integrity="sha512-QAV866KcCo2YSgj8D7BW+Zn3Fe5wVKTWwzKtWy8mkW+tePcJL7JYilvdfrBFQcdz4ODD48GpIPnhTp9UDI37uw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script id="rendered-js">
+        getPagination('#table-id');
+        //getPagination('.table-class');
+        //getPagination('table');
+
+        /*					PAGINATION 
+        - on change max rows select options fade out all rows gt option value mx = 5
+        - append pagination list as per numbers of rows / max rows option (20row/5= 4pages )
+        - each pagination li on click -> fade out all tr gt max rows * li num and (5*pagenum 2 = 10 rows)
+        - fade out all tr lt max rows * li num - max rows ((5*pagenum 2 = 10) - 5)
+        - fade in all tr between (maxRows*PageNum) and (maxRows*pageNum)- MaxRows 
+        */
+
+
+        function getPagination(table) {
+            var lastPage = 1;
+
+            $('#maxRows').
+                on('change', function (evt) {
+                    //$('.paginationprev').html('');						// reset pagination
+
+                    lastPage = 1;
+                    $('.pagination').
+                        find('li').
+                        slice(1, -1).
+                        remove();
+                    var trnum = 0; // reset tr counter
+                    var maxRows = parseInt($(this).val()); // get Max Rows from select option
+
+                    if (maxRows == 25) {
+                        $('.pagination').hide();
+                    } else {
+                        $('.pagination').show();
+                    }
+
+                    var totalRows = $(table + ' tbody tr').length; // numbers of rows
+                    $(table + ' tr:gt(0)').each(function () {
+                        // each TR in  table and not the header
+                        trnum++; // Start Counter
+                        if (trnum > maxRows) {
+                            // if tr number gt maxRows
+
+                            $(this).hide(); // fade it out
+                        }
+                        if (trnum <= maxRows) {
+                            $(this).show();
+                        } // else fade in Important in case if it ..
+                    }); //  was fade out to fade it in
+                    if (totalRows > maxRows) {
+                        // if tr total rows gt max rows option
+                        var pagenum = Math.ceil(totalRows / maxRows); // ceil total(rows/maxrows) to get ..
+                        //	numbers of pages
+                        for (var i = 1; i <= pagenum;) {
+                            if (window.CP.shouldStopExecution(0)) break;
+                            // for each page append pagination li
+                            $('.pagination #prev').
+                                before(
+                                    '<li data-page="' +
+                                    i +
+                                    '">\
+                                    <span>' +
+                                    i++ +
+                                    '<span class="sr-only">(current)</span></span>\
+                                  </li>').
+
+                                show();
+                        } // end for i
+                        window.CP.exitedLoop(0);
+                    } // end if row count > max rows
+                    $('.pagination [data-page="1"]').addClass('active'); // add active class to the first li
+                    $('.pagination li').on('click', function (evt) {
+                        // on click each page
+                        evt.stopImmediatePropagation();
+                        evt.preventDefault();
+                        var pageNum = $(this).attr('data-page'); // get it's number
+
+                        var maxRows = parseInt($('#maxRows').val()); // get Max Rows from select option
+
+                        if (pageNum == 'prev') {
+                            if (lastPage == 1) {
+                                return;
+                            }
+                            pageNum = --lastPage;
+                        }
+                        if (pageNum == 'next') {
+                            if (lastPage == $('.pagination li').length - 2) {
+                                return;
+                            }
+                            pageNum = ++lastPage;
+                        }
+
+                        lastPage = pageNum;
+                        var trIndex = 0; // reset tr counter
+                        $('.pagination li').removeClass('active'); // remove active class from all li
+                        $('.pagination [data-page="' + lastPage + '"]').addClass('active'); // add active class to the clicked
+                        // $(this).addClass('active');					// add active class to the clicked
+                        limitPagging();
+                        $(table + ' tr:gt(0)').each(function () {
+                            // each tr in table not the header
+                            trIndex++; // tr index counter
+                            // if tr index gt maxRows*pageNum or lt maxRows*pageNum-maxRows fade if out
+                            if (
+                                trIndex > maxRows * pageNum ||
+                                trIndex <= maxRows * pageNum - maxRows) {
+                                $(this).hide();
+                            } else {
+                                $(this).show();
+                            } //else fade in
+                        }); // end of for each tr in table
+                    }); // end of on click pagination list
+                    limitPagging();
+                }).
+                val(12).
+                change();
+
+            // end of on select change
+
+            // END OF PAGINATION
+        }
+
+        function limitPagging() {
+            // alert($('.pagination li').length)
+
+            if ($('.pagination li').length > 7) {
+                if ($('.pagination li.active').attr('data-page') <= 3) {
+                    $('.pagination li:gt(12)').hide();
+                    $('.pagination li:lt(12)').show();
+                    $('.pagination [data-page="next"]').show();
+                } if ($('.pagination li.active').attr('data-page') > 3) {
+                    $('.pagination li:gt(0)').hide();
+                    $('.pagination [data-page="next"]').show();
+                    for (let i = parseInt($('.pagination li.active').attr('data-page')) - 2; i <= parseInt($('.pagination li.active').attr('data-page')) + 2; i++) {
+                        if (window.CP.shouldStopExecution(1)) break;
+                        $('.pagination [data-page="' + i + '"]').show();
+
+                    } window.CP.exitedLoop(1);
+
+                }
+            }
+        }
+
+        $(function () {
+            // Just to append id number for each row
+            $('table tr:eq(0)').prepend('<th> S.No </th>');
+
+            var id = 0;
+
+            $('table tr:gt(0)').each(function () {
+                id++;
+                $(this).prepend('<td>' + id + '</td>');
+            });
+        });
+
+  //  Developed By Yasser Mas
+  // yasser.mas2@gmail.com
+  //# sourceURL=pen.js
+    </script>
+</body>
+</html>
