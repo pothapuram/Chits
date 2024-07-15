@@ -13,6 +13,7 @@
     <title>Senthil Calculate</title>
     <script type="text/javascript">
       window.onload= function() {
+        const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
         // Get the date input element
         const dateInput = document.getElementById("TodayVal");
         // Create a new Date object (today's date)
@@ -31,12 +32,13 @@
           
           // To add Days
           var d = new Date();
-          d.setDate(d.getDate() + Daysval);
+          d.setDate(d.getDate() + parseInt(Daysval));
           const year1 = d.getFullYear();
           const month1 = String(d.getMonth() + 1).padStart(2, "0"); // Months are 0-indexed
           const day1 = String(d.getDate()).padStart(2, "0");
           const formattedDate1 = `${year1}-${month1}-${day1}`;
-
+          let day = days[d.getDay()];
+          document.getElementById("DayResult").innerHTML = day;
           document.getElementById("DaysResult").innerHTML = formattedDate1;
         }
         
@@ -69,6 +71,7 @@
           }
       }
       function CalculateDays() {
+        const days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
           var t = document.getElementById("TodayVal").value;
           var Daysval = document.getElementById("Daysval").value;
           if(Daysval > 0)
@@ -76,12 +79,13 @@
             debugger;
              // To add Days
              var d = new Date(t);
-             d.setDate(d.getDate() + Daysval);
+             d.setDate(d.getDate() + parseInt(Daysval));
              const year1 = d.getFullYear();
              const month1 = String(d.getMonth() + 1).padStart(2, "0"); // Months are 0-indexed
              const day1 = String(d.getDate()).padStart(2, "0");
-             alert(year1)
              const formattedDate1 = `${year1}-${month1}-${day1}`;
+             let day = days[d.getDay()];
+             document.getElementById("DayResult").innerHTML = day;
              document.getElementById("DaysvalRes").innerHTML = Daysval;
              document.getElementById("DaysResult").innerHTML = formattedDate1;
           }
@@ -144,12 +148,46 @@
           <div class="col-md-6">  
             <h1 class="h5 mb-4">90 Days From Today</h1>          
             <div class="form-group">
-                <input type="date" class="form-control" placeholder="Select Date *" value="" id="TodayVal" onKeyUp="CalculateDays()" />
+                <input type="date" class="form-control" placeholder="Select Date *" value="" id="TodayVal" onchange="CalculateDays()" />
             </div>
             <div class="form-group">
               <input type="number" class="form-control"  placeholder="Days *" value="90" id="Daysval"  onKeyUp="CalculateDays()"/>
             </div> 
-            <h1 class="h5 mb-4"><span id="DaysvalRes"></span> Days From Today : <span id="DaysResult"></span></h1>
+            <h1 class="h5 mb-4"><span id="DaysvalRes"></span> Days From Today : <span id="DaysResult"></span> - <span id="DayResult"></span> </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-xl mb-3">
+  <div class="row">
+    <div class="col">
+      <div class="bg-white rounded p-4">        
+        <div class="row justify-content-center">                       
+          <div class="col-md-6">  
+            <h1 class="h5 mb-4">Calculate Rupees</h1>
+            <div class="form-group row">
+              <div class="col-sm-10">
+                <input type="number" class="form-control-sm" id="staticEmail" value="email@example.com">
+              </div>
+              <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+            </div>
+            <div class="form-group">
+                <input type="number" class="form-control" placeholder="Enter Count of 500 *" value="" id="TodayVal" onchange="CalculateRupees()" />
+                <label for="validationServer01" class="h6">Choose Account</label>
+            </div>
+            <div class="form-group">
+              <input type="number" class="form-control"  placeholder="Enter Count of 200 *" value="" id="Daysval"  onKeyUp="CalculateRupees()"/>
+            </div> 
+            <div class="form-group">
+              <input type="number" class="form-control"  placeholder="Enter Count of 100 *" value="" id="Daysval"  onKeyUp="CalculateRupees()"/>
+            </div> 
+            <div class="form-group">
+              <input type="number" class="form-control"  placeholder="Enter Count of 50 *" value="" id="Daysval"  onKeyUp="CalculateRupees()"/>
+            </div> 
+            <h1 class="h5 mb-4">Total Rupees: <span id="TotalRupees"></span> </h1>
           </div>
         </div>
       </div>
