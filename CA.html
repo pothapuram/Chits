@@ -10,20 +10,84 @@
     <link rel="stylesheet" href="CSS/agile.bot.css">
     <link rel="stylesheet" href="CSS/agile.bot.menu.css">
     
-    <title>Agile Bot</title>
+    <title>Senthil Calculate</title>
+    <script type="text/javascript">
+      window.onload= function() {
+        // Get the date input element
+        const dateInput = document.getElementById("TodayVal");
+        // Create a new Date object (today's date)
+        const today = new Date();
+        // Format the date as YYYY-MM-DD
+        const year = today.getFullYear();
+        const month = String(today.getMonth() + 1).padStart(2, "0"); // Months are 0-indexed
+        const day = String(today.getDate()).padStart(2, "0");
+        const formattedDate = `${year}-${month}-${day}`;
+        // Set the value of the input
+        dateInput.value = formattedDate;
+        var Daysval = document.getElementById("Daysval").value;
+        if(Daysval > 0)
+        {
+          document.getElementById("DaysvalRes").innerHTML = Daysval;
+          
+          // To add Days
+          var d = new Date();
+          d.setDate(d.getDate() + Daysval);
+          const year1 = d.getFullYear();
+          const month1 = String(d.getMonth() + 1).padStart(2, "0"); // Months are 0-indexed
+          const day1 = String(d.getDate()).padStart(2, "0");
+          const formattedDate1 = `${year1}-${month1}-${day1}`;
 
+          document.getElementById("DaysResult").innerHTML = formattedDate1;
+        }
+        
+      }
+  </script>
     <script>
-      function CalculatePer(){
+
+      function CalculatePer() {
           var o = document.getElementById("OldPackage").value;
           var n = document.getElementById("NewPackage").value;
-          document.getElementById("PerResult").innerHTML = 530000 ;
           if(o > 0 && n > 0)
           {
-              document.getElementById("PerResult").innerHTML = (((n-o)/o)*100) + "%";
+              document.getElementById("PerResult").innerHTML = (((n-o)/o)*100).toFixed(2) + "%";
           }
           else
           {
               document.getElementById("PerResult").innerHTML = "";
+          }
+      }
+      function CalculatePerVal() {
+          var o = document.getElementById("OldPackageVal").value;
+          var p = document.getElementById("Percentage").value;
+          if(o > 0 && p > 0)
+          {
+              document.getElementById("PerValResult").innerHTML = (parseInt(o) + parseInt(o * p/100));
+          }
+          else
+          {
+              document.getElementById("PerValResult").innerHTML = "";
+          }
+      }
+      function CalculateDays() {
+          var t = document.getElementById("TodayVal").value;
+          var Daysval = document.getElementById("Daysval").value;
+          if(Daysval > 0)
+          {
+            debugger;
+             // To add Days
+             var d = new Date(t);
+             d.setDate(d.getDate() + Daysval);
+             const year1 = d.getFullYear();
+             const month1 = String(d.getMonth() + 1).padStart(2, "0"); // Months are 0-indexed
+             const day1 = String(d.getDate()).padStart(2, "0");
+             alert(year1)
+             const formattedDate1 = `${year1}-${month1}-${day1}`;
+             document.getElementById("DaysvalRes").innerHTML = Daysval;
+             document.getElementById("DaysResult").innerHTML = formattedDate1;
+          }
+          else
+          {
+              document.getElementById("DaysResult").innerHTML = "";
           }
       }
   </script>
@@ -43,8 +107,28 @@
             <div class="form-group">
               <input type="number" class="form-control"  placeholder="New Package *" value="" id="NewPackage"  onKeyUp="CalculatePer()"/>
             </div> 
-            <h1 class="h5 mb-4">Percentage : <span id="PerResult"></span></h1>      
-          <button class="btn btn-primary">Change Password</button>
+            <h1 class="h5 mb-4">Percentage :<span id="PerResult"></span></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-xl mb-3">
+  <div class="row">
+    <div class="col">
+      <div class="bg-white rounded p-4">        
+        <div class="row justify-content-center">                       
+          <div class="col-md-6">  
+            <h1 class="h5 mb-4">Calculate % Value</h1>          
+            <div class="form-group">
+                <input type="number" class="form-control" placeholder="Old Package *" value="" id="OldPackageVal" onKeyUp="CalculatePerVal()" />
+            </div>
+            <div class="form-group">
+              <input type="number" class="form-control"  placeholder="Percentage *" value="" id="Percentage"  onKeyUp="CalculatePerVal()"/>
+            </div> 
+            <h1 class="h5 mb-4">New Package :<span id="PerValResult"></span></h1>
           </div>
         </div>
       </div>
@@ -55,143 +139,23 @@
 <div class="container-xl mb-3">
   <div class="row">
     <div class="col">
-      <div class="bg-white rounded p-4">
-        
+      <div class="bg-white rounded p-4">        
         <div class="row justify-content-center">                       
-          <div class="col-md-6"> 
-            <h1 class="h5 mb-4">Forgot Password?</h1>           
+          <div class="col-md-6">  
+            <h1 class="h5 mb-4">90 Days From Today</h1>          
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="User Name *" value="" />
+                <input type="date" class="form-control" placeholder="Select Date *" value="" id="TodayVal" onKeyUp="CalculateDays()" />
             </div>
             <div class="form-group">
-              <input type="email" class="form-control" placeholder="Email *" value="" />
-            </div>         
-            <button class="btn btn-primary">Send me Password Reset link</button>
+              <input type="number" class="form-control"  placeholder="Days *" value="90" id="Daysval"  onKeyUp="CalculateDays()"/>
+            </div> 
+            <h1 class="h5 mb-4"><span id="DaysvalRes"></span> Days From Today : <span id="DaysResult"></span></h1>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-    <div class="container-xl mb-3">
-      <div class="row">
-        <div class="col">
-          <div class="bg-white rounded p-4">
-            <form>
-              <fieldset>                               
-                <div class="form-row">                  
-                  <div class="col-md-4 mb-3">
-                    <legend class="h5">Add Account</legend>                     
-                    <input type="text" class="form-control" id="validationServer01" placeholder="Account Name" value="" required>
-                    <button class="btn btn-primary mt-3">ADD</button>
-                  </div>                  
-                </div>                
-              </fieldset>              
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container-xl mb-3">
-      <div class="row">
-        <div class="col">
-          <div class="bg-white rounded p-4">
-            <form>
-              <fieldset>
-                <legend class="h5">Accounts</legend>                
-                <table class="table table-sm">
-                  <thead>
-                    <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">Account Name</th>
-                      <th scope="col">Edit</th>
-                      <th scope="col">Delete</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td><input type="text" readonly class="form-control-sm form-control-plaintext" id="staticEmail" value="Cognizant"></td>
-                      <td><a href="javascript:void(0)" title="Edit" onclick="alert();$(this).prev('td').children().removeAttr('readonly')"><img src="Images/edit.svg" alt=""/></a></td>
-                      <td><a href="#" title="Delete"><img src="Images/trash.svg" alt=""/></a></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">2</th>
-                      <td>Aetna</td>
-                      <td><a href="#" title="Edit"><img src="Images/edit.svg" alt=""/></a></td>
-                      <td><a href="#" title="Edit"><img src="Images/trash.svg" alt=""/></a></td>
-                    </tr>                   
-                  </tbody>
-                </table>
-                <nav class="text-center" aria-label="Page navigation">
-                  <ul class="pagination">
-                    <li class="page-item">
-                      <a class="page-link" href="#" aria-label="Previous">
-                        <span aria-hidden="true">&laquo;</span>
-                        <span class="sr-only">Previous</span>
-                      </a>
-                    </li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item">
-                      <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">&raquo;</span>
-                        <span class="sr-only">Next</span>
-                      </a>
-                    </li>
-                  </ul>
-                </nav>
-              </fieldset>              
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <div class="container-xl mb-3">
-      <div class="row">
-        <div class="col">
-          <div class="bg-white rounded p-4">
-            <form>
-              <fieldset>
-                <legend class="h5">Account Assignment</legend>                
-                <div class="form-row">
-                  <div class="col-md-4 mb-3">
-                    <label for="validationServer01" class="h6">Choose Account</label>
-                    <select type="text" class="form-control"  required>
-                      <option>Select</option>
-                      <option>Aetna</option>
-                      <option>Cognizant</option>
-                    </select>
-                  </div>
-                </div>                
-                <div class="form-group row">
-                  <div class="col-sm-auto h6">Choose BOT:</div>
-                  <div class="col-sm-10">
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="gridCheck1">
-                      <label class="form-check-label" for="gridCheck1">
-                        Bot 1
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" id="gridCheck2">
-                      <label class="form-check-label" for="gridCheck2">
-                        Bot 2
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <button class="btn btn-primary">SAVE</button>
-              </fieldset>              
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
