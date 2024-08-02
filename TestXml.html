@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>Using XMLHttpRequest</title>
+</head>
+<body> 
+   <script>
+    const xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function ()
+         {
+            if (this
+            .readyState == 4 
+            && 
+            this.status == 200) {
+                let xmlDoc = this.responseXML;
+                let titles = xmlDoc
+                .getElementsByTagName("title");
+                let author = xmlDoc
+                .getElementsByTagName("author");
+                for (var i = 0; i < titles.length; i++) {
+                    console.log(`${titles[i]
+                        .childNodes[0]
+                        .nodeValue} Book is written by ${author[i]
+                            .childNodes[0]
+                            .nodeValue} `);
+                }
+            }
+        };
+        xhttp.open("GET", "data.xml", true);
+        xhttp.send();
+   </script>
+</body>
+</html>

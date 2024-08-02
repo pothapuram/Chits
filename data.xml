@@ -1,0 +1,12 @@
+<!--  Save this file in same 
+root folder as data.xml file  -->
+<bookstore>
+  <book>
+    <title>Database</title>
+    <author>abc</author>
+  </book>
+  <book>
+    <title>Data Structure</title>
+    <author>xyz</author>
+  </book>
+</bookstore>
