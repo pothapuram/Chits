@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<!-- Referance
+https://www.youtube.com/watch?v=nx8E5BF0XuE 
+-->
+
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content=">4.2 Lakhs Chits">
+    <title>Pothapuram Chits </title>
+    <link rel="icon" href="img/favicon.ico">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+	<title>Reads the XML data using JavaScript</title>
+
+	<!-- CSS -->
+	<style>
+		#members {
+		  font-family: Arial, Helvetica, sans-serif;
+		  border-collapse: collapse;
+		  width: 95%;
+		  margin-left: 5%;
+		}
+		
+		#members td, #members th {
+		  border: 1px solid #ddd;
+		  padding: 8px;
+		}
+		#active td{
+			border: 1px solid #ddd;
+			padding: 1px;
+		}
+		
+		#members tr:nth-child(even){background-color: #f2f2f2;}
+		
+		#members tr:hover {background-color: #ddd;}
+		
+		#members th {
+		  padding-top: 12px;
+		  padding-bottom: 12px;
+		  text-align: left;
+		  background-color: #04AA6D;
+		  color: white;
+		}
+	</style>
+
+	<!--JavaScript-->
+	<script>
+		 window.onload= function() {
+			loadXMLDoc();
+		 }
+		 function beatAmountChange() {
+			var x = document.getElementById("beatAmount").value;
+			if(x >0)
+			{
+				document.getElementById("inHandAmount").innerHTML = 420000 - x;
+				document.getElementById("perHead").innerHTML = Math.round((420000 - x) / 24);
+			}
+			else
+			{
+				document.getElementById("inHandAmount").innerHTML = "";
+				document.getElementById("perHead").innerHTML = "";
+			}
+		}
+		function loadXMLDoc() {
+			let xmlhttp = new XMLHttpRequest();
+			xmlhttp.onreadystatechange = function () {
+
+				// Request finished and response 
+				// is ready and Status is "OK"
+				if (this.readyState == 4 && this.status == 200) {
+					memberDetails(this);
+				}
+			};
+
+			// employee.xml is the external xml file
+			xmlhttp.open("GET", "data/530Lakh.xml", true);
+			xmlhttp.send();
+		}
+
+		function memberDetails(xml) {
+			let i;
+			let xmlDoc = xml.responseXML;
+			let table =
+				`<tr><th style="text-align: right;">Chit<br/>No</th>
+					<th>Month&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+					<th>Beat<br/>Amount</th>
+					<th>In Hand<br/>Amount</th>
+					<th>Per<br/>Head</th>
+					<th>Took<br/>Person</th>
+					<th>Extra<br/>In Box</th>
+				</tr>`;
+				//debugger;
+			let x = xmlDoc.getElementsByTagName("member");
+			let totalamd = 0;
+
+			let firstColumntd = `<td style="text-align: right;">`;
+			let totalColumntd = `<tr><td colspan="4" style="text-align: right;"><b>`;
+			let totalColumntdvalue = `<td colspan="3">`;
+			// Start to fetch the data by using TagName 
+			debugger;
+			for (i = 0; i < x.length; i++) {
+				if(i != x.length - 1) {
+					table += "<tr>" + firstColumntd +
+					parseInt(i+1) + "</td><td>" +
+					x[i].getElementsByTagName("month")[0]
+						.childNodes[0].nodeValue + "</td><td>" +
+					x[i].getElementsByTagName("beatAmount")[0]
+						.childNodes[0].nodeValue + "</td><td>" +
+					x[i].getElementsByTagName("inHandAmount")[0]
+						.childNodes[0].nodeValue + "</td><td>" +
+					x[i].getElementsByTagName("perHead")[0]
+						.childNodes[0].nodeValue + "</td><td>" +
+					x[i].getElementsByTagName("tookPerson")[0]
+						.childNodes[0].nodeValue + "</td><td>" +
+					x[i].getElementsByTagName("extraInBox")[0]
+						.childNodes[0].nodeValue + "</td></tr>";
+					
+					let perheadvalue = x[i].getElementsByTagName("perHead")[0].childNodes[0].nodeValue;
+					if(perheadvalue.length > 2)
+					{
+						totalamd = totalamd + parseInt(x[i].getElementsByTagName("perHead")[0].childNodes[0].nodeValue);
+					}
+				}
+				else {
+					table += "<tr>" + firstColumntd +
+					parseInt(i+1) + "</td><td>" +
+					x[i].getElementsByTagName("month")[0]
+						.childNodes[0].nodeValue + "</td><td id='active'><input style='width: 100px;' type='number' min='30000' value='40000' id='beatAmount' onKeyUp='beatAmountChange()'/>" +
+					x[i].getElementsByTagName("beatAmount")[0]
+						.childNodes[0].nodeValue + "</td><td><p id='inHandAmount'></p>" +
+					x[i].getElementsByTagName("inHandAmount")[0]
+						.childNodes[0].nodeValue + "</td><td><p id='perHead'></p>" +
+					x[i].getElementsByTagName("perHead")[0]
+						.childNodes[0].nodeValue + "</td><td>" +
+					x[i].getElementsByTagName("tookPerson")[0]
+						.childNodes[0].nodeValue + "</td><td>" +
+					x[i].getElementsByTagName("extraInBox")[0]
+						.childNodes[0].nodeValue + "</td></tr>";
+				}
+
+				
+			}
+			table += totalColumntd + "<b>Total Amount Paid Per Head : </b></td>" +
+					 totalColumntdvalue + totalamd + "</b></td></tr>" + 
+					 " <tr><td colspan='7'> &nbsp;</td></tr>" +
+					 " <tr><td colspan='7'> &nbsp;</td></tr>" +
+					 " <tr><td colspan='7'> &nbsp;</td></tr>"
+			// Print the xml data in table form
+			//alert(totalamd);
+			document.getElementById("members").innerHTML = table;
+		}
+	</script>
+</head>
+
+<body>
+	<div class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">4.2 Lakhs</a>
+                <a class="navbar-brand" href="530Lakh.html">5.3 Lakhs</a>
+            </div>
+        </div>
+    </div>
+	<div class="row">
+		<div class="col-sm-8">
+			<div class="row">
+				<div class="page-header">
+                    <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5.3 Lakhs Chits</h1>
+                </div>
+				<table id="members"></table>
+			</div>
+		</div>
+	</div>
+	<!-- <center>
+		<button type="button" class="button" onclick="loadXMLDoc()">
+			Get Member Details
+		</button>
+	</center> -->
+
+	<br><br>
+	
+</body>
+
+</html>

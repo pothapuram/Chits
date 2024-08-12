@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<members>
+	<member id="1">
+		<chitNo>1</chitNo>
+		<month>01-Sep-2023</month>
+		<beatAmount>182000</beatAmount>
+		<inHandAmount>348000</inHandAmount>
+		<perHead>11600</perHead>
+		<tookPerson>Arunkumar</tookPerson>
+		<extraInBox>0</extraInBox>
+	</member>
+	<member id="2">
+		<chitNo>2</chitNo>
+		<month>01-Oct-2023</month>
+		<beatAmount>154000</beatAmount>
+		<inHandAmount>376000</inHandAmount>
+		<perHead>12600</perHead>
+		<tookPerson>Nanjundan K</tookPerson>
+		<extraInBox>2000</extraInBox>
+	</member>
+	<member id="3">
+		<chitNo>3</chitNo>
+		<month>01-Nov-2023</month>
+		<beatAmount>173000</beatAmount>
+		<inHandAmount>357000</inHandAmount>
+		<perHead>11900</perHead>
+		<tookPerson>Madesh</tookPerson>
+		<extraInBox>2000</extraInBox>
+	</member>
+	<member id="4">
+		<chitNo>4</chitNo>
+		<month>01-Dec-2023</month>
+		<beatAmount>140000</beatAmount>
+		<inHandAmount>390000</inHandAmount>
+		<perHead>13000</perHead>
+		<tookPerson>Selvam M</tookPerson>
+		<extraInBox>2000</extraInBox>
+	</member>
+	<member id="5">
+		<chitNo>5</chitNo>
+		<month>01-Jan-2024</month>
+		<beatAmount>142000</beatAmount>
+		<inHandAmount>388000</inHandAmount>
+		<perHead>12900</perHead>
+		<tookPerson>Murugan K</tookPerson>
+		<extraInBox>1000</extraInBox>
+	</member>
+	<member id="6">
+		<chitNo>6</chitNo>
+		<month>01-Feb-2024</month>
+		<beatAmount>149000</beatAmount>
+		<inHandAmount>381000</inHandAmount>
+		<perHead>12700</perHead>
+		<tookPerson>Balamurugan</tookPerson>
+		<extraInBox>1000</extraInBox>
+	</member>
+	<member id="7">
+		<chitNo>7</chitNo>
+		<month>01-Mar-2024</month>
+		<beatAmount>146000</beatAmount>
+		<inHandAmount>384000</inHandAmount>
+		<perHead>12800</perHead>
+		<tookPerson>Eeswaran</tookPerson>
+		<extraInBox>1000</extraInBox>
+	</member>
+	<member id="8">
+		<chitNo>8</chitNo>
+		<month>01-Apr-2024</month>
+		<beatAmount>140000</beatAmount>
+		<inHandAmount>390000</inHandAmount>
+		<perHead>13000</perHead>
+		<tookPerson>Thirupathi</tookPerson>
+		<extraInBox>1000</extraInBox>
+	</member>
+	<member id="9">
+		<chitNo>9</chitNo>
+		<month>01-May-2024</month>
+		<beatAmount>151000</beatAmount>
+		<inHandAmount>379000</inHandAmount>
+		<perHead>12700</perHead>
+		<tookPerson>Selvam N</tookPerson>
+		<extraInBox>3000</extraInBox>
+	</member>
+	<member id="10">
+		<chitNo>10</chitNo>
+		<month>01-June-2024</month>
+		<beatAmount>133000</beatAmount>
+		<inHandAmount>397000</inHandAmount>
+		<perHead>13200</perHead>
+		<tookPerson>Karthik N</tookPerson>
+		<extraInBox>2000</extraInBox>
+	</member>
+	<member id="11">
+		<chitNo>11</chitNo>
+		<month>01-July-2024</month>
+		<beatAmount>117000</beatAmount>
+		<inHandAmount>413000</inHandAmount>
+		<perHead>13700</perHead>
+		<tookPerson>Govindaraj M</tookPerson>
+		<extraInBox>0</extraInBox>
+	</member>
+	<member id="11">
+		<chitNo>11</chitNo>
+		<month>01-Aug-2024</month>
+		<beatAmount>114000</beatAmount>
+		<inHandAmount>416000</inHandAmount>
+		<perHead>13900</perHead>
+		<tookPerson>Marimuthu M</tookPerson>
+		<extraInBox>1000</extraInBox>
+	</member>
+	<member id="12">
+		<chitNo>12</chitNo>
+		<month>01-Sep-2024</month>
+		<beatAmount> </beatAmount>
+		<inHandAmount> </inHandAmount>
+		<perHead> </perHead>
+		<tookPerson> </tookPerson>
+		<extraInBox> </extraInBox>
+	</member>
+</members>
