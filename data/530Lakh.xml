@@ -99,8 +99,8 @@
 		<tookPerson>Govindaraj M</tookPerson>
 		<extraInBox>0</extraInBox>
 	</member>
-	<member id="11">
-		<chitNo>11</chitNo>
+	<member id="12">
+		<chitNo>12</chitNo>
 		<month>01-Aug-2024</month>
 		<beatAmount>114000</beatAmount>
 		<inHandAmount>416000</inHandAmount>
@@ -108,9 +108,18 @@
 		<tookPerson>Marimuthu M</tookPerson>
 		<extraInBox>1000</extraInBox>
 	</member>
-	<member id="12">
-		<chitNo>12</chitNo>
+	<member id="13">
+		<chitNo>13</chitNo>
 		<month>01-Sep-2024</month>
+		<beatAmount>21000</beatAmount>
+		<inHandAmount>409000</inHandAmount>
+		<perHead>13600</perHead>
+		<tookPerson>Parthiban R</tookPerson>
+		<extraInBox>0</extraInBox>
+	</member>
+	<member id="14">
+		<chitNo>14</chitNo>
+		<month>01-Oct-2024</month>
 		<beatAmount> </beatAmount>
 		<inHandAmount> </inHandAmount>
 		<perHead> </perHead>
