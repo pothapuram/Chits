@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content=">5.25 Lakhs Chits">
+    <title>Pothapuram Chits </title>
+    <link rel="icon" href="img/favicon.ico">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <!-- <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style> -->
+        <style>
+            #customers {
+              font-family: Arial, Helvetica, sans-serif;
+              border-collapse: collapse;
+              width: 95%;
+              margin-left: 5%;
+            }
+            
+            #customers td, #customers th {
+              border: 1px solid #ddd;
+              padding: 8px;
+            }
+            #active td{
+                border: 1px solid #ddd;
+                padding: 1px;
+            }
+            
+            #customers tr:nth-child(even){background-color: #f2f2f2;}
+            
+            #customers tr:hover {background-color: #ddd;}
+            
+            #customers th {
+              padding-top: 12px;
+              padding-bottom: 12px;
+              text-align: left;
+              background-color: #04AA6D;
+              color: white;
+            }
+            </style>
+            <script>
+                function beatAmountChange(){
+                    var x = document.getElementById("beatAmount").value;
+                    if(x >0)
+                    {
+                        document.getElementById("inHandAmount").innerHTML = 525000 - x;
+                        document.getElementById("perHead").innerHTML = Math.round((525000 - x) / 24);
+                    }
+                    else
+                    {
+                        document.getElementById("inHandAmount").innerHTML = "";
+                        document.getElementById("perHead").innerHTML = "";
+                    }
+                }
+            </script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">5.3 Lakhs</a>
+                <a class="navbar-brand" href="5.25Lakh.html">5.25 Lakhs</a>
+                <a class="navbar-brand" href="4.20Lakh.html">4.2 Lakhs</a>
+            </div>
+        </div>
+    </div><!--navbar -->
+    <div class="row">
+        <div class="col-sm-1">
+            <!-- <div class="list-group">
+                <div class="list-group">
+                    <a class="list-group-item active" href="index.html"><span class="fa fa-square"></span>&nbsp; 24 Lakhs Chits</a>
+                </div>
+            </div> -->
+        </div>
+        <div class="col-sm-8">
+            <div class="row">
+                <div class="page-header">
+                    <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 5.25 Lakhs Chits</h1>
+                </div>
+                <table id="customers">
+                    <tr>
+                        <td colspan="4" style="text-align: right;"><b>Chit Amount : </b></td>
+                        <td colspan="3"><b>525000</b></td>
+                    </tr>
+                    <tr>
+                        <th style="text-align: right;">Chit<br/>No</th>
+                        <th>Month&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+                        <th>Beat<br/>Amount</th>
+                        <th>In Hand<br/>Amount</th>
+                        <th>Per<br/>Head</th>
+                        <th>Took<br/>Person</th>
+                        <th>Extra<br/>In&nbsp;Box</th>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">1</td>
+                        <td>15-Jan-2025</td>
+                        <td>191000</td>
+                        <td>334000</td>
+                        <td>14000</td>
+                        <td>Sakthi K</td>
+                        <td>2000</td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">2</td>
+                        <td>15-Feb-2025</td>
+                        <td id="active"><input style="width: 100px;" type="number" min="190000" value="190000" id="beatAmount" onKeyUp="beatAmountChange()"/></td>
+                        <td><p id="inHandAmount"></p></td>
+                        <td><p id="perHead"></p></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">3</td>
+                        <td>15-Mar-2025</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">4</td>
+                        <td>15-Apr-2025</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">5</td>
+                        <td>15-May-2025</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">6</td>
+                        <td>15-June-2025</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">7</td>
+                        <td>15-July-2025</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">8</td>
+                        <td>15-Aug-2025</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">9</td>
+                        <td>15-Sep-2025</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">10</td>
+                        <td>15-Oct-2025</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">11</td>
+                        <td>15-Nov-2025</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">12</td>
+                        <td>15-Dec-2025</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                     <tr>
+                        <td style="text-align: right;">13</td>
+                        <td>15-Jan-2026</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">14</td>
+                        <td>15-Feb-2026</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                     <tr>
+                        <td style="text-align: right;">15</td>
+                        <td>15-Mar-2026</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">16</td>
+                        <td>15-Apr-2026</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">17</td>
+                        <td>15-May-2026</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">18</td>
+                        <td>15-June-2026</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">19</td>
+                        <td>15-July-2026</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">20</td>
+                        <td>15-Aug-2026</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                     <tr>
+                        <td style="text-align: right;">18</td>
+                        <td>15-Sep-2026</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" style="text-align: right;"><b>Total Amount Paid Per Head : </b></td>
+                        <td colspan="3"><b>14000</b></td>
+                    </tr>
+                    <tr>
+                        <td colspan="7"> &nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="7"> &nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="7"> &nbsp;</td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="7" style="text-align: center;"><b>சீட்டு எடுக்காதவர்கள்</b></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;"><b>S.No </b></td>
+                        <td style="text-align: right;"><b>Name </b></td>
+                        <td colspan="5"><b>Mobile Number</b></td>
+                    </tr>
+                    <!-- <tr>
+                        <td style="text-align: right;">1</td>
+                        <td style="text-align: right;">Arunachalam</td>
+                        <td colspan="5"><a href="tel:9597496568">9597496568</a></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">2</td>
+                        <td style="text-align: right;">Chinnasamy S</td>
+                        <td colspan="5"><a href="tel:7010861707">7010861707</a></td>
+                    </tr>
+                                   
+                    <tr>
+                        <td style="text-align: right;">3</td>
+                        <td style="text-align: right;">Murugan M</td>
+                        <td colspan="5"><a href="tel:9659145403">9659145403</a></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">4</td>
+                        <td style="text-align: right;">Nanjappan R</td>
+                        <td colspan="5"><a href="tel:9688565738">9688565738</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="text-align: right;">5</td>
+                        <td style="text-align: right;">Ramesh</td>
+                        <td colspan="5"><a href="tel:8508325554">8508325554</a></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">6</td>
+                        <td style="text-align: right;">Ravi Vadamalai</td>
+                        <td colspan="5"><a href="tel:9080998687">9080998687</a></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">7</td>
+                        <td style="text-align: right;">Sakthi K</td>
+                        <td colspan="5"><a href="tel:8072071924">8072071924</a></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">8</td>
+                        <td style="text-align: right;">Sakthivel E</td>
+                        <td colspan="5"><a href="tel:9344245336">9344245336</a></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">9</td>
+                        <td style="text-align: right;">Selvaraj C</td>
+                        <td colspan="5"><a href="tel:9361176465">9361176465</a></td>
+                    </tr>
+                    
+                    <tr>
+                        <td style="text-align: right;">10</td>
+                        <td style="text-align: right;">Subramani</td>
+                        <td colspan="5"><a href="tel:9095169091">9095169091</a></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">11</td>
+                        <td style="text-align: right;">Veeramani A</td>
+                        <td colspan="5"><a href="tel:9688565526">9688565526</a></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">12</td>
+                        <td style="text-align: right;">Vijaykumar R</td>
+                        <td colspan="5"><a href="tel:7010082053">7010082053</a></td>
+                    </tr>
+                    <tr>
+                        <td style="text-align: right;">13</td>
+                        <td style="text-align: right;">Yuvaraj</td>
+                        <td colspan="5"><a href="tel:9500550505">9500550505</a></td>
+                    </tr> -->
+
+                </table>
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                <hr>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
