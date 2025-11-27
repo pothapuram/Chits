@@ -57,7 +57,7 @@
     }
     .totals { margin-top:10px; border-top:2px solid var(--accent); padding-top:10px; display:grid; gap:6px; }
     .totals .row label { color:var(--accent); }
-    .actions { text-align:center; margin-top:14px; }
+    .actions { text-align:center; margin-top:14px; display:flex; gap:10px; justify-content:center; }
     button {
       background:var(--accent);
       color:#fff;
@@ -66,8 +66,11 @@
       font-size:14px;
       border-radius:4px;
       cursor:pointer;
+      flex:1;
+      max-width:140px;
     }
     button:hover { background:#8e0049; }
+    button:active { transform:scale(0.98); }
     .footer-note { font-size:11px; color:#666; text-align:center; margin-top:6px; }
     .small { font-size:12px; font-weight:400; }
   </style>
@@ -120,10 +123,12 @@
       </div>
       <div class="actions">
         <button type="button" onclick="printReceipt()">Print</button>
+        <button type="button" onclick="captureScreenshot()">Screenshot</button>
       </div>
       <div class="footer-note">Auto-calculates subtotal & balance (ticket - subtotal).</div>
     </form>
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script>
     function num(id){
       const v = document.getElementById(id).value.trim();
@@ -141,6 +146,29 @@
     }
     function printReceipt(){
       window.print();
+    }
+    async function captureScreenshot(){
+      try {
+        const card = document.querySelector('.card');
+        const canvas = await html2canvas(card, {
+          scale: 2,
+          backgroundColor: '#ffffff',
+          logging: false
+        });
+        
+        // Convert to blob and download
+        canvas.toBlob(function(blob) {
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement('a');
+          const timestamp = new Date().toISOString().slice(0,10);
+          link.download = `receipt-${timestamp}.png`;
+          link.href = url;
+          link.click();
+          URL.revokeObjectURL(url);
+        });
+      } catch(err) {
+        alert('Screenshot failed: ' + err.message);
+      }
     }
     // Initialize empty calc
     recalculate();
