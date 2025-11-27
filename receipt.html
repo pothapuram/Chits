@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8" />
+  <title>ரசீது / Receipt</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    :root {
+      --border-color:#a21653;
+      --accent:#b8005c;
+      --bg-pattern-size:20px;
+    }
+    body {
+      font-family: 'Noto Sans Tamil', Arial, sans-serif;
+      background: repeating-linear-gradient(45deg,#f8f2f6 0,#f8f2f6 10px,#f2e3ec 10px,#f2e3ec 20px);
+      min-height:100vh;
+      margin:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+    .card {
+      width:380px;
+      background:#fff;
+      border:4px double var(--border-color);
+      padding:18px 20px 22px;
+      position:relative;
+      box-shadow:0 4px 10px rgba(0,0,0,.12);
+      background-image:radial-gradient(var(--accent) 1px, transparent 1px);
+      background-size:var(--bg-pattern-size) var(--bg-pattern-size);
+      background-position:0 0;
+    }
+    .card:before {
+      content:"";
+      position:absolute;
+      inset:6px;
+      border:1px solid var(--border-color);
+      pointer-events:none;
+    }
+    h1 {
+      font-size:20px;
+      margin:0 0 12px;
+      text-align:center;
+      color:var(--accent);
+    }
+    form { display:grid; gap:8px; }
+    .row { display:grid; grid-template-columns:120px 1fr; align-items:center; gap:6px; }
+    label { font-size:14px; font-weight:600; color:#333; }
+    input[type=text], input[type=number], input[type=date] {
+      width:100%;
+      padding:6px 8px;
+      font-size:14px;
+      border:1px solid #999;
+      border-radius:4px;
+      box-sizing:border-box;
+    }
+    .totals { margin-top:10px; border-top:2px solid var(--accent); padding-top:10px; display:grid; gap:6px; }
+    .totals .row label { color:var(--accent); }
+    .actions { text-align:center; margin-top:14px; }
+    button {
+      background:var(--accent);
+      color:#fff;
+      border:none;
+      padding:10px 18px;
+      font-size:14px;
+      border-radius:4px;
+      cursor:pointer;
+    }
+    button:hover { background:#8e0049; }
+    .footer-note { font-size:11px; color:#666; text-align:center; margin-top:6px; }
+    .small { font-size:12px; font-weight:400; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>சீட்டு ரசீது</h1>
+    <form id="receiptForm" oninput="recalculate()">
+      <div class="row">
+        <label for="name">பெயர்</label>
+        <input id="name" type="text" placeholder="பெயர்" />
+      </div>
+      <div class="row">
+        <label for="date">தேதி</label>
+        <input id="date" type="date" />
+      </div>
+      <div class="row">
+        <label for="setno">சீட்டு எண்</label>
+        <input id="setno" type="text" placeholder="27/30" />
+      </div>
+      <div class="row">
+        <label for="ticketAmount">சீட்டு தொகை</label>
+        <input id="ticketAmount" type="number" placeholder="500000" />
+      </div>
+      <div class="row">
+        <label for="ticketAmount">ஏல தொகை</label>
+        <input id="ticketAmount" type="number" placeholder="30000" />
+      </div>
+      <div class="row">
+        <label for="individual">தனிநபர்</label>
+        <input id="individual" type="number" placeholder="46500" />
+      </div>
+      <div class="row">
+        <label for="commission">கமிஷன்</label>
+        <input id="commission" type="number" placeholder="193000" />
+      </div>
+      <div class="row">
+        <label for="fee">கட்டண வசூலி</label>
+        <input id="fee" type="number" placeholder="12500" />
+      </div>
+      <div class="totals">
+        <div class="row">
+          <label for="subtotal">Subtotal</label>
+          <input id="subtotal" type="text" readonly />
+        </div>
+        <div class="row">
+          <label for="balance">Balance</label>
+          <input id="balance" type="text" readonly />
+        </div>
+      </div>
+      <div class="actions">
+        <button type="button" onclick="printReceipt()">Print</button>
+      </div>
+      <div class="footer-note">Auto-calculates subtotal & balance (ticket - subtotal).</div>
+    </form>
+  </div>
+  <script>
+    function num(id){
+      const v = document.getElementById(id).value.trim();
+      return v === '' ? 0 : parseFloat(v);
+    }
+    function recalculate(){
+      const commission = num('commission');
+      const individual = num('individual');
+      const fee = num('fee');
+      const ticket = num('ticketAmount');
+      const subtotal = commission + individual + fee;
+      const balance = ticket - subtotal;
+      document.getElementById('subtotal').value = subtotal.toLocaleString('en-IN');
+      document.getElementById('balance').value = balance.toLocaleString('en-IN');
+    }
+    function printReceipt(){
+      window.print();
+    }
+    // Initialize empty calc
+    recalculate();
+  </script>
+</body>
+</html>
