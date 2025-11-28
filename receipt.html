@@ -8,28 +8,43 @@
     :root {
       --border-color:#a21653;
       --accent:#b8005c;
-      --bg-pattern-size:20px;
+      --bg:
+        linear-gradient(135deg, #f9fafb 0%, #f1f5f9 60%, #eef2ff 100%);
+      --card-bg:#ffffff;
+      --text:#1f2937;
+      --muted:#6b7280;
+      --divider: var(--accent);
+    }
+    [data-theme="dark"] {
+      --bg:
+        radial-gradient(1000px 500px at 10% 10%, #0f172a 0%, #0b1220 60%, #08101d 100%),
+        radial-gradient(800px 400px at 90% 0%, rgba(184,0,92,0.08) 0%, transparent 60%);
+      --card-bg:#0f172a;
+      --text:#e5e7eb;
+      --muted:#94a3b8;
+      --divider: #e11d48;
     }
     body {
       font-family: 'Noto Sans Tamil', Arial, sans-serif;
-      background: repeating-linear-gradient(45deg,#f8f2f6 0,#f8f2f6 10px,#f2e3ec 10px,#f2e3ec 20px);
+      background: var(--bg);
       min-height:100vh;
       margin:0;
       display:flex;
       align-items:center;
       justify-content:center;
       padding:20px;
+      color:var(--text);
+      transition: background 0.3s ease, color 0.3s ease;
     }
     .card {
       width:380px;
-      background:#fff;
+      background:var(--card-bg);
       border:4px double var(--border-color);
       padding:18px 20px 22px;
       position:relative;
-      box-shadow:0 4px 10px rgba(0,0,0,.12);
-      background-image:radial-gradient(var(--accent) 1px, transparent 1px);
-      background-size:var(--bg-pattern-size) var(--bg-pattern-size);
-      background-position:0 0;
+      box-shadow:0 8px 24px rgba(2,6,23,.25);
+      background-image:none;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
     }
     .card:before {
       content:"";
@@ -46,7 +61,7 @@
     }
     form { display:grid; gap:8px; }
     .row { display:grid; grid-template-columns:120px 1fr; align-items:center; gap:6px; }
-    label { font-size:14px; font-weight:600; color:#333; }
+    label { font-size:14px; font-weight:600; color:var(--text); }
     input[type=text], input[type=number], input[type=date] {
       width:100%;
       padding:6px 8px;
@@ -54,8 +69,10 @@
       border:1px solid #999;
       border-radius:4px;
       box-sizing:border-box;
+      background:transparent;
+      color:var(--text);
     }
-    .totals { margin-top:10px; border-top:2px solid var(--accent); padding-top:10px; display:grid; gap:6px; }
+    .totals { margin-top:10px; border-top:2px solid var(--divider); padding-top:10px; display:grid; gap:6px; }
     .totals .row label { color:var(--accent); }
     .actions { text-align:center; margin-top:14px; display:flex; gap:10px; justify-content:center; }
     button {
@@ -71,7 +88,7 @@
     }
     button:hover { background:#8e0049; }
     button:active { transform:scale(0.98); }
-    .footer-note { font-size:11px; color:#666; text-align:center; margin-top:6px; }
+    .footer-note { font-size:11px; color:var(--muted); text-align:center; margin-top:6px; }
     .small { font-size:12px; font-weight:400; }
   </style>
 </head>
@@ -88,61 +105,80 @@
         <input id="date" type="date" />
       </div>
       <div class="row">
-        <label for="setno">சீட்டு எண்</label>
-        <input id="setno" type="text" placeholder="27/30" />
+        <label for="chitNo">சீட்டு எண்</label>
+        <input id="chitNo" type="text" placeholder="27/30" />
       </div>
       <div class="row">
-        <label for="ticketAmount">சீட்டு தொகை</label>
-        <input id="ticketAmount" type="number" placeholder="500000" />
+        <label for="chitAmount">சீட்டு தொகை</label>
+        <input id="chitAmount" type="number" placeholder="500000" />
       </div>
       <div class="row">
-        <label for="ticketAmount">ஏல தொகை</label>
-        <input id="ticketAmount" type="number" placeholder="30000" />
+        <label for="bidAmount">ஏல தொகை</label>
+        <input id="bidAmount" type="number" placeholder="30000" />
       </div>
       <div class="row">
         <label for="individual">தனிநபர்</label>
-        <input id="individual" type="number" placeholder="46500" />
-      </div>
-      <div class="row">
+        <!-- <input id="individual" type="number" placeholder="15000" oninput="event.stopPropagation(); individualPerMemberCalc()" /> -->
+         <input id="individual" type="number" placeholder="15000" oninput="event.stopPropagation();" />      
+    </div>
+      <!-- <div class="row">
         <label for="commission">கமிஷன்</label>
-        <input id="commission" type="number" placeholder="193000" />
-      </div>
-      <div class="row">
+        <input id="commission" type="number" placeholder="1000" oninput="event.stopPropagation()" />
+      </div> -->
+      <!-- <div class="row">
         <label for="fee">கட்டண வசூலி</label>
         <input id="fee" type="number" placeholder="12500" />
-      </div>
+      </div> -->
       <div class="totals">
         <div class="row">
           <label for="subtotal">Subtotal</label>
           <input id="subtotal" type="text" readonly />
         </div>
-        <div class="row">
+        <!-- <div class="row">
           <label for="balance">Balance</label>
           <input id="balance" type="text" readonly />
-        </div>
+        </div> -->
       </div>
       <div class="actions">
-        <button type="button" onclick="printReceipt()">Print</button>
+        <!-- <button type="button" onclick="printReceipt()">Print</button> -->
         <button type="button" onclick="captureScreenshot()">Screenshot</button>
+        <button type="button" onclick="toggleTheme()" id="themeBtn">Dark</button>
       </div>
-      <div class="footer-note">Auto-calculates subtotal & balance (ticket - subtotal).</div>
+      <!-- <div class="footer-note">Auto-calculates subtotal & balance (ticket - subtotal).</div> -->
     </form>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script>
+    // function individualPerMemberCalc(){
+        
+    // }
     function num(id){
       const v = document.getElementById(id).value.trim();
       return v === '' ? 0 : parseFloat(v);
     }
     function recalculate(){
-      const commission = num('commission');
-      const individual = num('individual');
-      const fee = num('fee');
-      const ticket = num('ticketAmount');
-      const subtotal = commission + individual + fee;
-      const balance = ticket - subtotal;
-      document.getElementById('subtotal').value = subtotal.toLocaleString('en-IN');
-      document.getElementById('balance').value = balance.toLocaleString('en-IN');
+        debugger;
+      //const commission = num('commission');
+      
+      const chitAmount = num('chitAmount');
+      const chitNo = document.getElementById('chitNo').value.trim();
+      const chitNoParts = chitNo === '' ? [] : chitNo.split('/');
+      const chitMembers = chitNoParts.length > 1 ? parseInt(chitNoParts[1]) : 0;
+      //const fee = num('fee');
+      const bidAmount = num('bidAmount');
+      if(chitAmount > 0 && chitMembers > 0 && bidAmount > 0 && (chitAmount > bidAmount) ){
+        const individualPerMember = ((chitAmount - bidAmount) / chitMembers)
+        document.getElementById('individual').value = individualPerMember != NaN ? individualPerMember.toFixed(2) : '';
+        
+        const subtotal = chitAmount - bidAmount;
+        document.getElementById('subtotal').value = subtotal.toLocaleString('en-IN');
+        const individual = num('individual');
+        // const balance = (individual * chitMembers)  - subtotal;
+        // document.getElementById('balance').value = balance.toFixed(2);
+      }
+      else if(bidAmount === 0){
+        document.getElementById('individual').value = '';
+      }      
     }
     function printReceipt(){
       window.print();
@@ -170,7 +206,28 @@
         alert('Screenshot failed: ' + err.message);
       }
     }
-    // Initialize empty calc
+    function applySavedTheme(){
+      const saved = localStorage.getItem('receipt-theme');
+      if(saved === 'dark'){
+        document.documentElement.setAttribute('data-theme','dark');
+        const btn = document.getElementById('themeBtn');
+        if(btn) btn.textContent = 'Light';
+      }
+    }
+    function toggleTheme(){
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if(isDark){
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('receipt-theme','light');
+        document.getElementById('themeBtn').textContent = 'Dark';
+      } else {
+        document.documentElement.setAttribute('data-theme','dark');
+        localStorage.setItem('receipt-theme','dark');
+        document.getElementById('themeBtn').textContent = 'Light';
+      }
+    }
+    // Initialize
+    applySavedTheme();
     recalculate();
   </script>
 </body>
