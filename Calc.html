@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>Currency Counter</title>
+	<style>
+		:root { --accent:#2563eb; --bg:#f8fafc; --text:#0f172a; --muted:#64748b; }
+		body { font-family: system-ui, -apple-system, Segoe UI, Arial; margin:0; background:var(--bg); color:var(--text); }
+		.wrap { max-width: 720px; margin: 24px auto; padding: 0 16px; }
+		h1 { font-size: 22px; margin: 0 0 12px; }
+		table { width: 100%; border-collapse: collapse; background:#fff; box-shadow: 0 8px 24px rgba(2,6,23,.08); border-radius: 8px; overflow: hidden; }
+		thead th { background:#0f172a; color:#e5e7eb; font-weight:600; padding:12px 10px; border-bottom:1px solid #1f2937; }
+		tbody td { padding:8px 10px; border-bottom:1px solid #e2e8f0; }
+		tbody tr:last-child td { border-bottom:none; }
+		tfoot td { padding:12px 10px; font-weight:700; background:#f1f5f9; text-align: right; }
+		.denom { font-weight:600; text-align: right; }
+		input[type=number] {
+			width: 90px;
+			padding:10px 8px;
+			font-size:18px;
+			border:1px solid #cbd5e1;
+			border-radius:10px;
+			box-sizing:border-box;
+			text-align: right;
+		}
+		.right { text-align: right; }
+		.controls { display:flex; gap:10px; margin-top:12px; justify-content:center; }
+		button { background:var(--accent); color:#fff; border:none; padding:10px 14px; border-radius:6px; font-size:14px; cursor:pointer; }
+		button.secondary { background:#334155; }
+		.sticky-total { position: sticky; bottom: 0; background:#fff; box-shadow: 0 -8px 24px rgba(2,6,23,.06); padding: 12px; border-radius: 12px; margin-top: 16px; display:flex; justify-content: space-between; align-items:center; }
+    
+		/* Mobile optimizations */
+		@media (max-width: 480px) {
+			.wrap { margin: 12px auto; }
+			table { font-size: 16px; }
+			thead th { padding:8px; }
+			tbody td { padding:8px; }
+			input[type=number] { width: 80px; font-size:18px; padding:10px 6px; }
+			.controls { position: sticky; bottom: 68px; background: #fff; padding: 8px; box-shadow: 0 -6px 18px rgba(2,6,23,.05); }
+			button { flex: 1; padding:12px; font-size:16px; border-radius:10px; }
+		}
+		.val { font-variant-numeric: tabular-nums; }
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<h1>Currency Counter</h1>
+		<table>
+			<thead>
+				<tr>
+					<th>Denomination</th>
+					<th>Count</th>
+					<th class="right">Line Total</th>
+				</tr>
+			</thead>
+			<tbody id="rows">
+				<!-- Rows injected by JS -->
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="2">Grand Total</td>
+					<td class="right"><span id="grand" class="val">0</span></td>
+				</tr>
+			</tfoot>
+		</table>
+		<div class="controls">
+			<button onclick="clearAll()">Clear</button>
+			<!-- <button class="secondary" onclick="window.print()">Print</button> -->
+		</div>
+		<!-- <div class="sticky-total">
+			<div>Total:</div>
+			<div id="grand2" class="val">0</div>
+		</div> -->
+	</div>
+
+	<script>
+		const denominations = [500, 200, 100, 50];
+
+		function fmt(n){
+			return n.toLocaleString('en-IN');
+		}
+		function value(id){
+			const v = document.getElementById(id).value;
+			return v === '' ? 0 : parseFloat(v);
+		}
+
+		function render(){
+			const tbody = document.getElementById('rows');
+			tbody.innerHTML = '';
+			for(const d of denominations){
+				const tr = document.createElement('tr');
+				tr.innerHTML = `
+					<td class="denom">₹ ${fmt(d)}</td>
+					<td><input type="number" id="cnt-${d}" min="0" step="1" inputmode="numeric" /></td>
+					<td class="right"><span id="tot-${d}" class="val">0</span></td>
+				`;
+				tbody.appendChild(tr);
+			}
+			document.getElementById('rows').addEventListener('input', recalc);
+		}
+
+		function recalc(){
+			let grand = 0;
+			for(const d of denominations){
+				const count = value(`cnt-${d}`);
+				const line = d * (isNaN(count) ? 0 : count);
+				grand += line;
+				document.getElementById(`tot-${d}`).textContent = fmt(line);
+			}
+			document.getElementById('grand').textContent = fmt(grand);
+			document.getElementById('grand2').textContent = fmt(grand);
+		}
+
+		function clearAll(){
+			for(const d of denominations){
+				document.getElementById(`cnt-${d}`).value = '';
+				document.getElementById(`tot-${d}`).textContent = '0';
+			}
+			document.getElementById('grand').textContent = '0';
+			document.getElementById('grand2').textContent = '0';
+		}
+
+		render();
+	</script>
+</body>
+</html>
