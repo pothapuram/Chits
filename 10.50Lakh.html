@@ -64,8 +64,8 @@
         }
     </style>
     <script>
-        function beatAmountChange() {
-            var x = document.getElementById("beatAmount").value;
+        function bidAmountChange() {
+            var x = document.getElementById("bidAmount").value;
             if (x > 0) {
                 document.getElementById("inHandAmount").innerHTML = 1050000 - x;
                 document.getElementById("perHead").innerHTML = Math.round((1050000 - x) / 30);
@@ -106,14 +106,14 @@
                     <tr>
                         <td colspan="2" style="text-align: right;"><b>Chit Amount : </b></td>
                         <td colspan="2"><b>1050000</b></td>
-                        <td colspan="2" style="text-align: right;"><b>Beat Amount : </b></td>
+                        <td colspan="2" style="text-align: right;"><b>Bid Amount : </b></td>
                         <td colspan="1"><b>30000</b></td>
                     </tr>
                     <tr>
                         <th style="text-align: right;">Chit<br />No</th>
                         <th>Month&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </th>
-                        <th>Beat<br />Amount</th>
+                        <th>Bid<br />Amount</th>
                         <th>In Hand<br />Amount</th>
                         <th>Per<br />Head</th>
                         <th>Took<br />Person</th>
@@ -132,7 +132,7 @@
                         <td style="text-align: right;">2</td>
                         <td>10-Dec-2026</td>
                         <td id="active"><input style="width: 100px;" type="number" min="300000" value="300000"
-                                id="beatAmount" onKeyUp="beatAmountChange()" /></td>
+                                id="bidAmount" onKeyUp="bidAmountChange()" /></td>
                         <td>
                             <p id="inHandAmount"></p>
                         </td>
