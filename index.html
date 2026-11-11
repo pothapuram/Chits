@@ -57,8 +57,8 @@
             }
             </style>
             <script>
-                function beatAmountChange(){
-                    var x = document.getElementById("beatAmount").value;
+                function bidAmountChange(){
+                    var x = document.getElementById("bidAmount").value;
                     if(x >0)
                     {
                         document.getElementById("inHandAmount").innerHTML = 525000 - x;
@@ -100,13 +100,13 @@
                     <tr>
                         <td colspan="2" style="text-align: right;"><b>Chit Amount : </b></td>
                         <td colspan="2"><b>525000</b></td>
-                        <td colspan="2" style="text-align: right;"><b>Beat Amount : </b></td>
+                        <td colspan="2" style="text-align: right;"><b>Bid Amount : </b></td>
                         <td colspan="1"><b>25000</b></td>
                     </tr>
                     <tr>
                         <th style="text-align: right;">Chit<br/>No</th>
                         <th>Month&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
-                        <th>Beat<br/>Amount</th>
+                        <th>Bid<br/>Amount</th>
                         <th>In Hand<br/>Amount</th>
                         <th>Per<br/>Head</th>
                         <th>Took<br/>Person</th>
@@ -286,7 +286,7 @@
                     <tr>
                         <td style="text-align: right;">20</td>
                         <td>15-Aug-2026</td>
-                        <td id="active"><input style="width: 100px;" type="number" min="25000" value="25000" id="beatAmount" onKeyUp="beatAmountChange()"/></td>
+                        <td id="active"><input style="width: 100px;" type="number" min="25000" value="25000" id="bidAmount" onKeyUp="bidAmountChange()"/></td>
                         <td><p id="inHandAmount"></p></td>
                         <td><p id="perHead"></p></td>
                         <td></td>
